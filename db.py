@@ -14,8 +14,6 @@ class DB(object):
         result = cursor.execute('SELECT * from users')
         return list(map(lambda item: User(db_fetch_item=item), result.fetchall()))
 
-
-
     def add_user(self, name, password):
         cursor = self.connection.cursor()
         cursor.execute('INSERT INTO users(id,name,password) VALUES(?,?,?)', (None, name, password))
